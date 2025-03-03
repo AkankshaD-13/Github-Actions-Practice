@@ -1,13 +1,18 @@
 name: CI
 
-#
+#different types of events webhook, scheduled, repository_dispatch (using github apis).
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
     #types: ["assigned, re-opened"]
-    #https://docs.github.com/en/actions
+    #https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+  #schedule: 
+    #runs on cron expression and utc time.
+    #- cron: '*/15 * * * *'
+  #to trigger custom repository event send POST event to Github API Endpoint and add repository_dispatcg with types in your workflow file.
+
   workflow_dispatch:
 
 jobs:
